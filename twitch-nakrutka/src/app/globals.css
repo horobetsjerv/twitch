@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-main: var(--maincolor);
+  --color-background: var(--background);
+  --color-backgroundactive: var(--backgroundactive);
+  --color-mainactive: var(--maincoloractive);
+}
+
+:root {
+  --background: #1d1c23;
+  --backgroundactive: #212027;
+  --maincolor: #8840c9;
+  --maincoloractive: #9549d8;
+  height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+  }
+}
+
+body {
+  color: white;
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+  appearance: none;
+  outline: none;
+  box-shadow: none;
+}
+
+button:hover{
+  cursor: pointer;
+}
