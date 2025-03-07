@@ -165,6 +165,17 @@ export class AppService {
     return usersAllWithRoles;
   }
 
+  async addRole(role) {
+    const roleExist = await this.roleRepository.findOne({
+      where: { value: role.role },
+    });
+    if (roleExist) {
+      throw new Error('Role already exist');
+    } else {
+      return this.roleRepository.save(role);
+    }
+  }
+
   async deleteRoleWorker(userId: string) {
     const roleId = '2';
     const userRole = await this.userRolesRepository.findOne({

@@ -111,4 +111,14 @@ export class AppController {
       return res.status(500).json({ error: error.message || error });
     }
   }
+
+  @Post('/addRole')
+  async addRole(@Body() body: { role: string }, @Res() res: Response) {
+    try {
+      const role = await this.appService.addRole(body.role);
+      return res.status(200).json({ role });
+    } catch (error) {
+      return res.status(500).json({ error: error.message || error });
+    }
+  }
 }
