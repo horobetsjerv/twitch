@@ -168,12 +168,12 @@ export class AppService {
   async addRole(role) {
     console.log(role);
     const roleExist = await this.roleRepository.findOne({
-      where: { value: role.role },
+      where: { value: role },
     });
     if (roleExist) {
       throw new Error('Role already exist');
     } else {
-      const newRole = this.roleRepository.create({ value: role.role });
+      const newRole = this.roleRepository.create({ value: role });
       return this.roleRepository.save(newRole);
     }
   }
