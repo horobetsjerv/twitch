@@ -143,7 +143,7 @@ export class AppService {
     res.cookie('access_token', accessToken, {
       httpOnly: true,
       secure: false,
-      sameSite: 'lax',
+      sameSite: 'none',
       expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
     });
   }
