@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { MdCancel } from "react-icons/md";
+import { MainURL } from "../../../URLS";
 
 export default function Auth() {
   const [users, setUsers] = useState<UserIF[]>([]);
@@ -15,26 +16,23 @@ export default function Auth() {
 
   async function deleteWorker(id: string) {
     await axios.patch(
-      "http://185.67.2.49:4444/deleteRoleWorker",
+      `${MainURL}/deleteRoleWorker`,
       { id },
       { withCredentials: true }
     );
   }
 
   async function getUsers() {
-    const users = await axios.get("http://185.67.2.49:4444/users");
+    const users = await axios.get(`${MainURL}/users`);
 
     setUsers(users.data.users);
     return users;
   }
 
   async function addWorker(id: string) {
-    const response = await axios.patch(
-      "http://185.67.2.49:4444/addRoleWorker",
-      {
-        userId: id,
-      }
-    );
+    const response = await axios.patch(`${MainURL}/addRoleWorker`, {
+      userId: id,
+    });
     return response;
   }
 
@@ -61,7 +59,7 @@ export default function Auth() {
           <span className="text-2xl font-bold bg-[#8840c9] text-white rounded-xl p-2">
             ШТАТ
           </span>
-          <div className="mt-4 flex flex flex-col gap-4">
+          <div className="mt-4 flex  flex-col gap-4">
             {usersWorkers.map((user) => (
               <div className="flex flex-row items-center gap-3 justify-between">
                 <span className="w-[17vw] flex items-center justify-center text-lg rounded-md border p-2 hover:cursor-pointer">

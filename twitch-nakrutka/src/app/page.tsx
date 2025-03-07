@@ -12,6 +12,7 @@ import axios from "axios";
 import { FaPersonRifle, FaUser } from "react-icons/fa6";
 import { logIn, Roles } from "@/lib/features/user/userSlice";
 import { useDispatch } from "react-redux";
+import { MainURL } from "../../URLS";
 
 export default function Home() {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function Home() {
     router.replace(`/?${params.toString()}`, { scroll: false });
   };
   const getUser = async () => {
-    const response = await axios.get("http://185.67.2.49:4444/user", {
+    const response = await axios.get(`${MainURL}/user`, {
       withCredentials: true,
     });
     dispatch(logIn(response.data));
@@ -291,7 +292,7 @@ export default function Home() {
           {streamer && (
             <div>
               <iframe
-                src={`https://player.twitch.tv/?channel=${streamer}&parent=185.67.2.49`}
+                src={`https://player.twitch.tv/?channel=${streamer}&parent=http://debrabebra.top/`}
                 height="170"
                 width="350"
                 frameBorder="0"
@@ -299,7 +300,7 @@ export default function Home() {
                 className="rounded-lg rounded-b-none shadow-lg"
               ></iframe>
               <iframe
-                src={`https://player.twitch.tv/?channel=${streamer}&parent=185.67.2.49`}
+                src={`https://player.twitch.tv/?channel=${streamer}&parent=http://debrabebra.top/`}
                 height="500"
                 width="350"
                 frameBorder="0"
