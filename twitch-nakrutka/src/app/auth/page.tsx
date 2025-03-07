@@ -28,14 +28,14 @@ export default function Auth() {
 
   const onSubmit = async (data: any) => {
     async function regiter() {
-      await axios.post("http://localhost:4444/register", data, {
+      await axios.post("http://185.67.2.49:4444/register", data, {
         withCredentials: true,
       });
       toast.success("Регистрация прошла успешно!");
       router.push("/pending");
     }
     async function login() {
-      const response = await axios.post("http://localhost:4444/login", data, {
+      const response = await axios.post("http://185.67.2.49:4444/login", data, {
         withCredentials: true,
       });
       const user: UserIF = response.data;

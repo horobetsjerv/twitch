@@ -24,7 +24,7 @@ export default function Home() {
     router.replace(`/?${params.toString()}`, { scroll: false });
   };
   const getUser = async () => {
-    const response = await axios.get("http://localhost:4444/user", {
+    const response = await axios.get("http://185.67.2.49:4444/user", {
       withCredentials: true,
     });
     dispatch(logIn(response.data));

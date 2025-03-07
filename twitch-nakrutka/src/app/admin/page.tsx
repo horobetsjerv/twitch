@@ -15,23 +15,26 @@ export default function Auth() {
 
   async function deleteWorker(id: string) {
     await axios.patch(
-      "http://localhost:4444/deleteRoleWorker",
+      "http://185.67.2.49:4444/deleteRoleWorker",
       { id },
       { withCredentials: true }
     );
   }
 
   async function getUsers() {
-    const users = await axios.get("http://localhost:4444/users");
+    const users = await axios.get("http://185.67.2.49:4444/users");
 
     setUsers(users.data.users);
     return users;
   }
 
   async function addWorker(id: string) {
-    const response = await axios.patch("http://localhost:4444/addRoleWorker", {
-      userId: id,
-    });
+    const response = await axios.patch(
+      "http://185.67.2.49:4444/addRoleWorker",
+      {
+        userId: id,
+      }
+    );
     return response;
   }
 
