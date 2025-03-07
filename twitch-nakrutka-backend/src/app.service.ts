@@ -166,7 +166,7 @@ export class AppService {
   }
 
   async addRole(role) {
-    console.log(role.role);
+    console.log(role);
     const roleExist = await this.roleRepository.findOne({
       where: { value: role.role },
     });
