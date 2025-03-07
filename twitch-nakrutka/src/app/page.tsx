@@ -10,7 +10,7 @@ import Cookies from "js-cookie";
 import { RootState, useAppSelector } from "@/lib/store";
 import axios from "axios";
 import { FaPersonRifle, FaUser } from "react-icons/fa6";
-import { logIn } from "@/lib/features/user/userSlice";
+import { logIn, Roles } from "@/lib/features/user/userSlice";
 import { useDispatch } from "react-redux";
 
 export default function Home() {
@@ -169,6 +169,12 @@ export default function Home() {
     return data;
   }
 
+  useEffect(() => {
+    if (user.role.length === 1 && user.role.includes(Roles.USER)) {
+      router.push("/auth");
+    }
+  }, []);
+
   return (
     <div className="p-10 flex flex-col ">
       <div className="flex flex-row ">
@@ -283,9 +289,7 @@ export default function Home() {
           {streamer && (
             <div>
               <iframe
-                src={`https://player.twitch.tv/?channel=${streamer}&parent=${
-                  typeof window !== "undefined" ? window.location.hostname : ""
-                }`}
+                src={`https://player.twitch.tv/?channel=${streamer}&parent=185.67.2.49`}
                 height="170"
                 width="350"
                 frameBorder="0"
@@ -293,9 +297,7 @@ export default function Home() {
                 className="rounded-lg rounded-b-none shadow-lg"
               ></iframe>
               <iframe
-                src={`https://www.twitch.tv/embed/${streamer}/chat?parent=${
-                  typeof window !== "undefined" ? window.location.hostname : ""
-                }&darkpopout`}
+                src={`https://player.twitch.tv/?channel=${streamer}&parent=185.67.2.49`}
                 height="500"
                 width="350"
                 frameBorder="0"
