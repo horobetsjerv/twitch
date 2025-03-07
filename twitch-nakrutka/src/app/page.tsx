@@ -173,7 +173,7 @@ export default function Home() {
   useEffect(() => {
     getUser().then(() => {
       if (user.role.length === 1 && user.role.includes(Roles.USER)) {
-        router.push("/auth");
+        // router.push("/auth");
       }
     });
   }, []);
