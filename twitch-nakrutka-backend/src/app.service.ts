@@ -172,7 +172,8 @@ export class AppService {
     if (roleExist) {
       throw new Error('Role already exist');
     } else {
-      return this.roleRepository.save(role);
+      const newRole = this.roleRepository.create({ value: role.role });
+      return this.roleRepository.save(newRole);
     }
   }
 

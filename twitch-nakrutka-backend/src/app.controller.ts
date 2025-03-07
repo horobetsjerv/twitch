@@ -105,7 +105,6 @@ export class AppController {
   @Patch('/addRoleWorker')
   async addRoleWorker(@Body() body: { userId: string }, @Res() res: Response) {
     try {
-      console.log(body);
       const user = await this.appService.addRoleWorker(body.userId);
       return res.status(200).json({ user });
     } catch (error) {
