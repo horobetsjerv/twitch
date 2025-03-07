@@ -145,7 +145,7 @@ export class AppService {
       secure: false,
       sameSite: 'none', // Необходимо для кросс-доменных запросов
       expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
-      domain: '.debrabebra.top', // Используем общий домен, чтобы куки были доступны на всех поддоменах
+      domain: 'debrabebra.top', // Используем общий домен, чтобы куки были доступны на всех поддоменах
       path: '/',
     });
   }
