@@ -292,7 +292,7 @@ export default function Home() {
           {streamer && (
             <div>
               <iframe
-                src={`https://player.twitch.tv/?channel=${streamer}&parent=http://debrabebra.top/`}
+                src={`https://player.twitch.tv/?channel=${streamer}&parent=debrabebra.top`}
                 height="170"
                 width="350"
                 frameBorder="0"
@@ -300,7 +300,7 @@ export default function Home() {
                 className="rounded-lg rounded-b-none shadow-lg"
               ></iframe>
               <iframe
-                src={`https://player.twitch.tv/?channel=${streamer}&parent=http://debrabebra.top/`}
+                src={`https://player.twitch.tv/?channel=${streamer}&parent=debrabebra.top`}
                 height="500"
                 width="350"
                 frameBorder="0"
